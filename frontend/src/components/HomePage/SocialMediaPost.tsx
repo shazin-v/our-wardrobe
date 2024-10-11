@@ -1,9 +1,8 @@
 import React from "react";
 import { socialpost } from "../sampleData/SampleData";
 
-type Props = {};
 
-const SocialMediaPost = (props: Props) => {
+const SocialMediaPost = () => {
   return (
     <div className="py-20">
       <h2 className="text-center">Our instagram stories</h2>
@@ -17,7 +16,7 @@ const SocialMediaPost = (props: Props) => {
             <div className="w-full h-full">
               <img
                 src={post.img}
-                alt={post.name}
+                alt=""
                 className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
             </div>

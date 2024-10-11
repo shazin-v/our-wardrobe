@@ -2,9 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { Categories } from "@/components/sampleData/SampleData";
 
-type Props = {};
 
-const Cards = (props: Props) => {
+const Cards = () => {
   return (
     <div className="flex mx-auto gap-10 justify-around">
       {Categories.map((item, key) => {

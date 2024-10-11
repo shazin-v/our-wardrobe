@@ -4,9 +4,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import Cards from "./Cards";
 import BestSeller from "./BestSeller";
 
-type Props = {};
 
-const ShopByCategory = (props: Props) => {
+const ShopByCategory = () => {
   return (
     <>
       <div className="">

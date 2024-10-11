@@ -3,9 +3,8 @@ import { FiHome } from "react-icons/fi";
 import { MdOutlinePayment } from "react-icons/md";
 import { TiDocumentText } from "react-icons/ti";
 
-type Props = {};
 
-const Chain = (props: Props) => {
+const Chain = () => {
   return (
     // TODO: use logic for each page icon bg-black and make -- instead of -
     <div>

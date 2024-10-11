@@ -6,9 +6,8 @@ import Testimonial from "./Testimonial";
 import SocialMediaPost from "./SocialMediaPost";
 import Footer from "../common/Footer";
 
-type Props = {};
 
-const index = (props: Props) => {
+const index = () => {
   return (
     <>
       <div className="h-screen">

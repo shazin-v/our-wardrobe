@@ -2,9 +2,8 @@ import React from "react";
 import { bestSellerItems } from "@/components/sampleData/SampleData";
 import { CiStar } from "react-icons/ci";
 
-type Props = {};
 
-const BestSeller = (props: Props) => {
+const BestSeller = () => {
   return (
     <div>
       <h1 className="text-center text-3xl font-semibold">Our Best Seller</h1>

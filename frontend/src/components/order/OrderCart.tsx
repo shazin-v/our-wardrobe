@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { sampleProducts } from "../sampleData/SampleData";
 import { RiDeleteBin6Line } from "react-icons/ri";

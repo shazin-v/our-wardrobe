@@ -7,9 +7,8 @@ import { CiHeart } from "react-icons/ci";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 
-type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const router = useRouter();
 
   const handleCartNavigation = () =>{

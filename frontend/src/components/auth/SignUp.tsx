@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import SummaryApi from "@/components/api/index";
 
-type Props = {};
 
-const SignUp = (props: Props) => {
+const SignUp = () => {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +15,7 @@ const SignUp = (props: Props) => {
   console.log("email", email);
   console.log("password", password);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dataResposne = await fetch(SummaryApi.signUp.url, {
       method: SummaryApi.signUp.method,

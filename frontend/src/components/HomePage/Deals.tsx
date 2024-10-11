@@ -1,9 +1,8 @@
 import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-type Props = {};
 
-const Deals = (props: Props) => {
+const Deals = () => {
   return (
     <>
       <div className=" h-96 flex flex-col lg:flex-row justify-between items-center mt-10 mx-auto max-w-7xl">

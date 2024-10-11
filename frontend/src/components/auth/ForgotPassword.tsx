@@ -3,9 +3,8 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
-type Props = {};
 
-const ForgotPassword = (props: Props) => {
+const ForgotPassword = () => {
   const router = useRouter();
   return (
     <>

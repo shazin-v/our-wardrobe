@@ -2,9 +2,8 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
-type Props = {};
 
-const Otp = (props: Props) => {
+const Otp = () => {
   const handleCLick = () => {
     return true;
   };

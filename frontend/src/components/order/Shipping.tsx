@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import OrderSummary from "../common/OrderSummary";
 import Chain from "../common/Chain";
 import SavedOrders from "./SavedOrders";
 import NewAddress from "./NewAddress";
 
-type Props = {};
 
-const Shipping = (props: Props) => {
+const Shipping = () => {
   return (
     <>
       <div className="flex justify-between mx-20 mt-10">

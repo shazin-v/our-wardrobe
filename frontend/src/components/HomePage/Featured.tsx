@@ -1,8 +1,7 @@
 import React from "react";
 
-type Props = {};
 
-const Featured = (props: Props) => {
+const Featured = () => {
   return (
     <>
       {/* <div className="h-4/5 bg-[#f3f3f3]">Featured</div> */}

@@ -2,9 +2,8 @@ import React from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { testmonial } from "../sampleData/SampleData"; // Assuming this is the correct path to sample data
 
-type Props = {};
 
-const Testimonial = (props: Props) => {
+const Testimonial = () => {
   return (
     <div className="py-20">
       <div className="flex justify-around items-center mb-8">
@@ -19,7 +18,7 @@ const Testimonial = (props: Props) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {testmonial.map((item, key) => (
           <div key={key} className="p-6 border rounded-lg shadow-lg bg-white">
-            <p className="text-gray-600 mb-4">"{item.review}"</p>
+            <p className="text-gray-600 mb-4">{item.review}</p>
             <div className="flex items-center">
               <img
                 src={item.img}

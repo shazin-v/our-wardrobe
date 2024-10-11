@@ -1,9 +1,7 @@
 import Shipping from "@/components/order/Shipping";
 import React from "react";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <>
       <Shipping />

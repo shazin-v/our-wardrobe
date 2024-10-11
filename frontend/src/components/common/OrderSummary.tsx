@@ -1,9 +1,8 @@
 import React from "react";
 import { sampleProducts } from "../sampleData/SampleData";
 
-type Props = {};
 
-const OrderSummary = (props: Props) => {
+const OrderSummary = () => {
   return (
     <>
       <div id="summary" className="w-1/3 px-8 py-10 bg-gray-100">

@@ -8,9 +8,8 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaGooglePay } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa";
 
-type Props = {};
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <>
       {/* TODO : Make repsonsive  & flex column view*/}

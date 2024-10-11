@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const router = useRouter(); // Call useRouter in a client-side context
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dataResposne = await fetch(SummaryApi.signIn.url, {
       method: SummaryApi.signIn.method,

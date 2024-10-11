@@ -1,9 +1,7 @@
 import Otp from '@/components/auth/Otp'
 import React from 'react'
 
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <>
     <Otp />

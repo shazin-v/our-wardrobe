@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { TbEdit } from "react-icons/tb";
 import { MdOutlineDeleteOutline } from "react-icons/md";
