@@ -1,4 +1,4 @@
-const backendDomain = "http://localhost:8080";
+const backendDomain = "our-wardrobe-server.vercel.app";
 
 const SummaryApi = {
   signUp: {
