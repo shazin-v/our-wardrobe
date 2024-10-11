@@ -1,21 +1,22 @@
 const express = require("express");
 const cors = require("cors");
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const connectDB = require("../backend/config/db");
 const router = require("./routes");
 
 const app = express();
-app.use(cors({
-  origin: "https://depioy-meIn-1Khq.vercel.app",
-  methods: ["POST", "GET"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: process.env.FRONT_END_PORT,
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 
-app.use(express.json())
-app.use(cookieParser())
-app.use("/api",router)
-
+app.use(express.json());
+app.use(cookieParser());
+app.use("/api", router);
 
 const PORT = 8080 || process.env.PORT;
 
