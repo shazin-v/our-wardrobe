@@ -8,7 +8,7 @@ const router = require("./routes");
 const app = express();
 app.use(
   cors({
-    origin: process.env.FRONT_END_PORT,
+    origin: process.env.FRONTEND_URL,
     methods: ["POST", "GET"],
     credentials: true,
   })

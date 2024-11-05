@@ -1,38 +1,39 @@
-"use client"; // Ensure this is the very first line
-
-import Link from "next/link";
+"use client";
 import React, { useState } from "react";
+import { useGeneralContext } from "@/context";
+import Link from "next/link";
 import SummaryApi from "../api";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const router = useRouter(); // Call useRouter in a client-side context
+  const router = useRouter();
+  const { fetchUserDetails } = useGeneralContext();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const dataResposne = await fetch(SummaryApi.signIn.url, {
+    const response = await fetch(SummaryApi.signIn.url, {
       method: SummaryApi.signIn.method,
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
+      body: JSON.stringify(credentials),
+      credentials: "include",
     });
 
-    const data = await dataResposne.json();
-    console.log(data, data);
-    if (data.success === true) {
-      console.log("User successfully logged in");
-      alert(data.message);
-      router.push("/"); // Correctly using router.push
-      // Redirect to home page on success
+    const data = await response.json();
+    if (data.success) {
+      Cookies.set("authToken", data.data, { expires: 1, secure: true });
+      toast.success(data.message);
+      router.push("/");
+      fetchUserDetails();
     } else {
-      console.log("else");
-      alert(data.message);
+      toast.success(data.message);
     }
   };
+
   return (
     <>
       <div className="flex h-screen">
