@@ -1,24 +1,28 @@
 import React from "react";
 import { bestSellerItems } from "@/components/sampleData/SampleData";
 import { CiStar } from "react-icons/ci";
-
+import Image from "next/image";
 
 const BestSeller = () => {
   return (
     <div>
-      <h1 className="text-center text-3xl font-semibold">Our Best Seller</h1>
+      <h1 className="container text-center text-3xl font-semibold">
+        Our Best Seller
+      </h1>
 
       <div className="grid grid-cols-2 gap-6 my-10 lg:mt-16 lg:gap-4 lg:grid-cols-4 mx-10">
         {bestSellerItems.map((item, key) => (
           <div key={key} className="relative group">
             {/* img */}
             <div className="overflow-hidden h-80">
-              <img
+              <Image
                 className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"
+                width={100}
+                height={100}
                 src={item.img}
                 alt={item.title}
               />
-                 {/* <Image
+              {/* <Image
                 className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"
                 src={item.img} // Assuming item.img is a valid image path
                 alt={item.title}
@@ -45,9 +49,9 @@ const BestSeller = () => {
                 <p
                   key={index}
                   className={`sm:px-3 sm:py-1.5 px-1.5 py-1 text-[8px] sm:text-xs font-bold tracking-wide text-${
-                    label === "Sale" ? "white" : "gray-900"
-                  } uppercase bg-${
-                    label === "Sale" ? "gray-900" : "white"
+                    label === "sale" ? "black" : "gray-900"
+                  } first-letter: bg-${
+                    label === "sale" ? "gray-900" : "white"
                   } rounded-full`}
                 >
                   {label}

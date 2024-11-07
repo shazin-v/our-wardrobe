@@ -8,7 +8,6 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaGooglePay } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa";
 
-
 const Footer = () => {
   return (
     <>
@@ -146,7 +145,7 @@ const Footer = () => {
               <FaPaypal size={25} className="text-white" />
             </div>
             <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-              © 2023 <a href="https://flowbite.com/">Krist™</a> All Rights
+              © 2024 <a href="https://flowbite.com/">Krist™</a> All Rights
               Reserved.
             </span>
             <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">

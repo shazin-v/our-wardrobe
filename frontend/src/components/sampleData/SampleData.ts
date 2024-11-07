@@ -93,7 +93,9 @@ export const testmonial = [
     img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDZ8fHN0cmVldHdlYXJ8ZW58MHx8fHwxNjAxMzIxODUy&ixlib=rb-1.2.1&q=80&w=400",
     name: "John Doe",
     designation: "CEO",
-    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    review:
+     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+     ,
   }
 ]
 

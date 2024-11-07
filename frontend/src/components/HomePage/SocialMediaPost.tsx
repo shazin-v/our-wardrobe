@@ -1,6 +1,6 @@
 import React from "react";
 import { socialpost } from "../sampleData/SampleData";
-
+import Image from "next/image";
 
 const SocialMediaPost = () => {
   return (
@@ -14,9 +14,11 @@ const SocialMediaPost = () => {
           >
             {/* Image Box */}
             <div className="w-full h-full">
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={post.img}
-                alt=""
+                alt={post.url}
                 className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
             </div>

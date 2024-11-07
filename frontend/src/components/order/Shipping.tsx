@@ -6,7 +6,6 @@ import Chain from "../common/Chain";
 import SavedOrders from "./SavedOrders";
 import NewAddress from "./NewAddress";
 
-
 const Shipping = () => {
   return (
     <>

@@ -4,6 +4,7 @@ import React from "react";
 import { sampleProducts } from "../sampleData/SampleData";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import OrderSummary from "../common/OrderSummary";
+import Image from "next/image";
 
 type Props = {};
 
@@ -38,7 +39,9 @@ const OrderCart = (props: Props) => {
               <div className="flex w-2/5">
                 {/* Product */}
                 <div className="w-20">
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     className="h-24"
                     src={product.imageUrl}
                     alt={product.name}

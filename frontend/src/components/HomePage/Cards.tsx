@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import { Categories } from "@/components/sampleData/SampleData";
 
-
 const Cards = () => {
   return (
     <div className="flex mx-auto gap-10 justify-around">

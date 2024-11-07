@@ -1,7 +1,6 @@
 import React from "react";
 import { sampleProducts } from "../sampleData/SampleData";
 
-
 const OrderSummary = () => {
   return (
     <>

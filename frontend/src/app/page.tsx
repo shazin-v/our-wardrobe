@@ -18,7 +18,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="">
+    <div className="gap-6 mx-5">
       <Provider store={store}>
         <Featured />
         <ShopByCategory />

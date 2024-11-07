@@ -4,11 +4,10 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import Cards from "./Cards";
 import BestSeller from "./BestSeller";
 
-
 const ShopByCategory = () => {
   return (
     <>
-      <div className="">
+      <div className="container">
         <div className="flex justify-around">
           <div>Shop By Categories</div>
           <div className="flex gap-2">
@@ -20,7 +19,7 @@ const ShopByCategory = () => {
           </div>
         </div>
 
-        <div className="flex gap-5 mt-16 mb-16">
+        <div className="flex gap-5 mt-16 mb-16 container overflow-scroll">
           <Cards />
         </div>
         <div>

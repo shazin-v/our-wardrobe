@@ -1,7 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import SummaryApi from "@/components/api/index";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
+import { useGeneralContext } from "@/context";
 
 
 const SignUp = () => {
@@ -9,125 +14,113 @@ const SignUp = () => {
   const [lName, setLName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+  const { fetchUserDetails } = useGeneralContext();
 
-  console.log("setFname", fName);
-  console.log("lName", lName);
-  console.log("email", email);
-  console.log("password", password);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const dataResposne = await fetch(SummaryApi.signUp.url, {
+    const response = await fetch(SummaryApi.signUp.url, {
       method: SummaryApi.signUp.method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fname: fName,
-        lname: lName,
-        email,
-        password,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fname: fName, lname: lName, email, password }),
     });
-    // TODO: Make logic for verify the email auth
-    // TODO: Make eye icon and functionality for password
 
-    // alert("Form Submitted");
-    const data = await dataResposne.json();
-    console.log("data", data);
-    if (data.message == "User created successfully") {
-      console.log("User successfully created");
-      alert(data.message); // Show alert with the response message if unsuccessful
-      window.location.href = "/login"; // Redirect to login page on success
+    const data = await response.json();
+    toast.success(data.message);
+    if (data.success) {
+      Cookies.set("authToken", data.data, { expires: 1, secure: true });
+      toast.success(data.message);
+      router.push("/");
+      fetchUserDetails();
     } else {
-      alert(data.message); // Show alert with the response message if unsuccessful
-    }
-  };
+      toast.error(data.message);
+    }  };
 
   return (
-    <>
-      <div className="flex h-screen">
-        {/* Left container with background image */}
-        <div
-          className="w-1/2 bg-gray-200 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/images/Signup_IMG.svg')",
-          }}
-        ></div>
-
-        {/* Right container with login form */}
-        <div className="w-1/2 bg-white flex justify-center items-center">
-          <div className="w-3/4">
-            <h2 className="text-3xl font-bold mb-6">Create Ne Account 👋</h2>
-            <p className="text-gray-400 mb-10">Please enter details</p>
-            <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-              <label htmlFor="">First Name</label>
-              <input
-                type="text"
-                placeholder="Enter Name"
-                value={fName}
-                onChange={(e) => setFName(e.target.value)}
-                required
-                className="p-3 border border-gray-300 rounded-md"
-              />
-              <label htmlFor="">Last Name</label>
-              <input
-                type="text"
-                placeholder="Enter Name"
-                value={lName}
-                onChange={(e) => setLName(e.target.value)}
-                required
-                className="p-3 border border-gray-300 rounded-md"
-              />
-              <label htmlFor="">Email address</label>
-              <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="p-3 border border-gray-300 rounded-md"
-              />
-              <label htmlFor="">Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="p-3 border border-gray-300 rounded-md"
-              />
-              <div className="flex justify-between">
-                <div>
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    name="remember"
-                    required
-                  />
-                  <label htmlFor="remember" className="ml-2">
-                    I agree to <b>Terms & Conditions</b>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <p>
-                  Already have an account?
-                  <Link href={"/login"} className="text-blue-500">
-                    {" "}
-                    Sign In
-                  </Link>
-                </p>
-              </div>
-              <button className="bg-black text-white p-3 rounded-md">
-                Sign Up
-              </button>
-            </form>
-          </div>
-        </div>
+    <div className="flex h-screen">
+      <div className="relative w-1/2 bg-cover bg-center">
+        <Image
+          src="/images/Signup_IMG.svg"
+          alt="Signup Image"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
-    </>
+
+      <div className="w-1/2 flex justify-center items-center bg-white p-6">
+        <form className="w-full max-w-md" onSubmit={handleSubmit}>
+          <h2 className="text-3xl font-bold mb-6">Create New Account 👋</h2>
+          <p className="text-gray-400 mb-10">Please enter your details</p>
+
+          <input
+            type="text"
+            placeholder="First Name"
+            value={fName}
+            onChange={(e) => setFName(e.target.value)}
+            required
+            className="p-3 border border-gray-300 rounded-md w-full mb-3"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={lName}
+            onChange={(e) => setLName(e.target.value)}
+            required
+            className="p-3 border border-gray-300 rounded-md w-full mb-3"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="p-3 border border-gray-300 rounded-md w-full mb-3"
+          />
+          <div className="relative mb-3">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="p-3 border border-gray-300 rounded-md w-full"
+            />
+            <button
+              type="button"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
+
+          <div className="flex items-center mb-4">
+            <input type="checkbox" id="agree" required className="accent-black"  />
+            <label htmlFor="agree" className="ml-2">
+              I agree to <b>Terms & Conditions</b>
+            </label>
+          </div>
+
+          <div className="text-center mb-6">
+            <p>
+              Already have an account?{" "}
+              <Link href="/login" className="text-blue-500">
+                Sign In
+              </Link>
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            className="bg-black text-white p-3 rounded-md w-full"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
